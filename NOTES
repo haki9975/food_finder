@@ -1,0 +1,23 @@
+What is a recipe ?
+ - has a name
+ - has a main ingredient
+ - has other ingredients 
+ - ingredients have measurements
+ - has a location
+ - has a a description for instructions
+ - some will have a link to a youtube video for instructions
+end 
+
+If main ingredient is blank return list of five random recipes
+
+**Program must be engaged until user tells it to quit**
+    - In recipe - or at decision points - Are you ready to quit? at bottom (Y/N )
+
+    requirements
+     1) Provide a CLI 
+     2) CLI Application must provide access to data from a web page
+     3) Data must go at least one level deep - a "level" being where a user can make a choice and get detailed info
+        - i.e. Choose main ingredient --> Display recipes based on ingredient -> Choose recipe -> Display detailed recipe info
+    4) Not similar to ruby final projects (I don't really think that it is...)
+    5) Use good OO design paterns. 
+        - i.e. Create a collection of objects to store data. (avoid getting info more than once per page, store in objects that already exist)
