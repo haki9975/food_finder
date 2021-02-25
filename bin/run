@@ -1,0 +1,5 @@
+!#/user/bin/environment ruby
+
+require_relative "../lib/environment.rb"
+
+FoodFinder::API.random_recipes
