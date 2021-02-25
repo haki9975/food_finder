@@ -2,4 +2,5 @@
 
 require './lib/food_finder'
 
-FoodFinder::CLI.new.call
+
+FoodFinder::CLI.new

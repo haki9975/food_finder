@@ -3,6 +3,7 @@ require 'pry'
 class FoodFinder::CLI
 @@all = []
     def call
+      FoodFinder::API.new.random_recipes
        introduction
       # goodbye
     end
@@ -26,7 +27,7 @@ class FoodFinder::CLI
     def continue_with_ingredient
         puts "Do you have a main ingredient in mind? .(y/n)"
         input = nil
-        until input = "exit" do
+        until input == "exit" do
             input = gets.chomp.downcase
           if input == "y"
             puts "List of main ingredients"
