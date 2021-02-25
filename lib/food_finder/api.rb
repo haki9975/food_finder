@@ -10,7 +10,7 @@ class FoodFinder::API
   def initialize 
     @@all<<self
   end
-    def self.random_recipes
+    def self.recipes
         uri = URI.parse(URL)
         response = Net::HTTP.get_response(uri)
         response.body
@@ -19,5 +19,3 @@ class FoodFinder::API
    
 end
 
-    #random_rec = FoodFinder::API.new.random_recipes
-    #puts random_rec

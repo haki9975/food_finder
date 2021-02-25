@@ -1,19 +1,21 @@
 require 'pry'
 #CLI Controller, responsible for welcoming user and managing user input
 class FoodFinder::CLI
-@@all = []
-    def call
-      FoodFinder::API.new.random_recipes
+  @@all = []
+
+  def call
+      FoodFinder::API.new.recipes
        introduction
       # goodbye
     end
+   
     def introduction
           input = nil
         until input == "Exit" do
           puts "Are you hungry?  Enter Y to continue or N to quit"
             input= gets.chomp.downcase
           if input== "y"  
-            continue_with_ingredient
+            display_recipes
           elsif input == "n"
            goodbye
           else
@@ -24,7 +26,7 @@ class FoodFinder::CLI
         end
     end
 
-    def continue_with_ingredient
+    def display_recipes
         puts "Do you have a main ingredient in mind? .(y/n)"
         input = nil
         until input == "exit" do
@@ -40,21 +42,16 @@ class FoodFinder::CLI
 
     end
     
-    def continue_without_ingredient
-        puts <<-DOC
-        5.times.do instantiates recipes from random recipes api
-        Allows user to select a recipe or regenerate random list
-        Once recipe is selected : Provides list of all ingredients, description, insturctions, and link to youtube video if possible
-        option to exit program and option to restart
-        DOC
-    end
-
-    def goodbye
-        puts 'Happy eating!'
+ 
+    def goodbye_1
+        puts 'Then I will be of no use to you!'
         exit
     end
-
-
+    
+    def goodbye_2
+      puts 'Happy eating!'
+      exit
+    end
 
 end
 #module FoodFinder

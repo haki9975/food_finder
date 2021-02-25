@@ -2,4 +2,4 @@
 
 require_relative "../lib/environment.rb"
 
-FoodFinder::API.random_recipes
+FoodFinder::CLI.call
