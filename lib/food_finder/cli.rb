@@ -4,7 +4,7 @@ class FoodFinder::CLI
   @@all = []
 
   def call
-      FoodFinder::API.new.recipes
+      FoodFinder::API.recipes
        introduction
       # goodbye
     end
@@ -27,16 +27,19 @@ class FoodFinder::CLI
     end
 
     def display_recipes
-        puts "Do you have a main ingredient in mind? .(y/n)"
+        puts "Would you like to cook any of these recipes? Select recipe by number. Type 6 to list different recipes. Type 7 to quit."
         input = nil
         until input == "exit" do
             input = gets.chomp.downcase
-          if input == "y"
-            puts "List of main ingredients"
-          elsif input == "n"
-            puts "Displays 5 random recipes"
+          if input == "1-6"
+            puts "Displays recipe corresponding w input number"
+          elsif input == "6"
+            puts "Displays 5 different recipes"
             input.gets.chomp
+          elsif input == "7"
+              goodbye_1
           else
+            puts "I didn't understand that, please enter 1-7"
           end
         end
 

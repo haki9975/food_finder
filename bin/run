@@ -1,5 +1,5 @@
-!#/user/bin/environment ruby
+#!/usr/bin/env ruby
 
 require_relative "../lib/environment.rb"
 
-FoodFinder::CLI.call
+FoodFinder::CLI.new.call
