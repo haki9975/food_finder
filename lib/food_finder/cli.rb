@@ -27,13 +27,14 @@ class FoodFinder::CLI
     end
 
     def display_recipes
+      input = nil
         puts "Would you like to cook any of these recipes? Select recipe by number. Type 6 to list different recipes. Type 7 to quit."
-        input = nil
-         puts recipe_accessor
+         FoodFinder::Recipe.some
+        
         until input == "exit" do
              #FoodFinder::Recipe.all.sample(5)
            recipe_accessor
-            input = gets.chomp.downcase
+            #input = gets.chomp.downcase
           if input == "1-6"
              #FoodFinder::Recipe.all
              #input = gets.chomp
@@ -51,6 +52,7 @@ class FoodFinder::CLI
 
     def recipe_accessor
       FoodFinder::Recipe.some
+      end
     
     end
     

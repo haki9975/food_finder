@@ -13,7 +13,8 @@ class FoodFinder::Recipe
         @@all << self
     end
    def self.some
-      @@all.sample(5)
+      @@all.sample(5).map {|meal| meal.strMeal }
+      
    end    
       def self.all
         @@all
