@@ -12,8 +12,9 @@ class FoodFinder::API
         response.body
         data = JSON.parse(response.body)
        data["meals"].each do |meal|
-          #FoodFinder::Recipe.new(meal)
-          binding.pry
+       # binding.pry
+          FoodFinder::Recipe.new(meal)
+        
        end
     end
    

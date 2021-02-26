@@ -4,8 +4,8 @@ class FoodFinder::CLI
   @@all = []
 
   def call
-      FoodFinder::API.recipes
-       introduction
+    FoodFinder::API.recipes
+    introduction
       # goodbye
     end
    
@@ -17,7 +17,7 @@ class FoodFinder::CLI
           if input== "y"  
             display_recipes
           elsif input == "n"
-           goodbye
+           goodbye_2
           else
             puts "I didn't understand that, please enter Y or N"
           end
@@ -30,6 +30,8 @@ class FoodFinder::CLI
         puts "Would you like to cook any of these recipes? Select recipe by number. Type 6 to list different recipes. Type 7 to quit."
         input = nil
         until input == "exit" do
+           FoodFinder::Recipe.all
+           #binding.pry
             input = gets.chomp.downcase
           if input == "1-6"
             puts "Displays recipe corresponding w input number"
