@@ -8,8 +8,10 @@ class FoodFinder::Recipe
         recipe.each do |key, value| 
            next unless self.class.method_defined?(key)
               self.send(("#{key}="), value)
-       end
+            end
+            #binding.pry
         @@all << self
+
       
      end
    

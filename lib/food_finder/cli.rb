@@ -30,14 +30,15 @@ class FoodFinder::CLI
         puts "Would you like to cook any of these recipes? Select recipe by number. Type 6 to list different recipes. Type 7 to quit."
         input = nil
         until input == "exit" do
-           FoodFinder::Recipe.all
+           puts FoodFinder::Recipe.all.sample(5)
            #binding.pry
-            input = gets.chomp.downcase
+            #input = gets.chomp.downcase
           if input == "1-6"
-            puts "Displays recipe corresponding w input number"
+             FoodFinder::Recipe.all
+             input = gets.chomp
           elsif input == "6"
             puts "Displays 5 different recipes"
-            input.gets.chomp
+            #input.gets.chomp
           elsif input == "7"
               goodbye_1
           else

@@ -9,9 +9,9 @@ class FoodFinder::API
     def self.recipes
         uri = URI.parse(URL)
         response = Net::HTTP.get_response(uri)
-        response.body
-        data = JSON.parse(response.body)
-       data["meals"].each do |meal|
+         response.body
+         data = JSON.parse(response.body)
+         data["meals"].each do |meal|
        # binding.pry
           FoodFinder::Recipe.new(meal)
         
