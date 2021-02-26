@@ -16,7 +16,7 @@ class FoodFinder::CLI
       if input== "y"  
           display_recipes
        elsif input == "n"
-          goodbye_2
+          goodbye_1
        else
           puts "I didn't understand that, please enter Y or N"
       end
@@ -27,25 +27,24 @@ class FoodFinder::CLI
 
   def display_recipes
           input = nil
-        puts "Would you like to cook any of these recipes? Select recipe by number. Type 6 to list different recipes. Type 7 to quit."
-       # puts recipe_accessor
+          puts recipe_displayall
+        puts "Would you like to cook any of these recipes? Scroll up to see recipies and select recipe by entering the number. Type 27 to quit."
+       
        # input = gets.chomp
-    until input == 7 do
-      puts recipe_accessor
-      input = gets.chomp
-      input = input.to_i
-       if input < 5 && input > 0
-          input = input -1
-         #FoodFinder::Recipe.all
-         #input = gets.chomp
-        elsif input == 6
-          puts "Displays 5 different recipes"
-          recipe_accessor
-         #input.gets.chomp
-        elsif input == 7
+    until input == 27 do
+      input = gets.chomp.to_i
+        if input < 26 && input > 0
+          input -=1
+         puts "#{recipe_all(input).strSource} Here is your #{recipe_all(input).strMeal} recipe link and here is a link to video instruction: #{recipe_all(input).strYoutube}."
+        
+         puts "Press 27 if you are ready to exit. Press 26 if you would like to see the recipe list again."
+         input = gets.chomp.to_i
+        elsif input == 26
+          display_recipes
+        elsif input == 27
           goodbye_2
-        elsif input > 7
-          puts "I didn't understand that, please enter 1-7"
+        elsif input > 27 || input.class != Integer
+          puts "I didn't understand that, please try again"
         end
           input = gets.chomp
     end
@@ -55,7 +54,18 @@ class FoodFinder::CLI
   def recipe_accessor
     FoodFinder::Recipe.some.collect.with_index(1) {|meal, index| "#{index}. #{meal}"}  
   end
-    
+
+  def recipe_five
+    puts FoodFinder::Recipe.five.collect.with_index(1) { |meal, index|"#{index}. #{ meal.strMeal }" }
+  end    
+  
+  def recipe_displayall
+    FoodFinder::Recipe.all.collect.with_index(1) { |meal, index| "#{index}. #{ meal.strMeal }" }
+  end
+
+  def recipe_all(input)
+    FoodFinder::Recipe.all[input]
+  end
  
     def goodbye_1
       puts 'Then I will be of no use to you!'
@@ -68,7 +78,3 @@ class FoodFinder::CLI
   end
 
 end
-#module FoodFinder
- #   class Error < StandardError; end
-    # Your code goes here...
-# end
