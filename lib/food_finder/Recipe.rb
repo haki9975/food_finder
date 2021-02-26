@@ -1,7 +1,7 @@
 
 class FoodFinder::Recipe 
     #store data from API class
-    attr_accessor :idMeal, :strMeal, :strCategory, :strArea, :strInstructions, :strTags, :strIngredient1, :strDrinkAlternate
+    attr_accessor :idMeal, :strMeal, :strCategory, :strArea, :strInstructions, :strTags, :strIngredient1, :strYoutube
 
     @@all = []
     def initialize(recipe)
@@ -11,10 +11,10 @@ class FoodFinder::Recipe
             end
             #binding.pry
         @@all << self
-
-      
-     end
-   
+    end
+   def self.some
+      @@all.sample(5)
+   end    
       def self.all
         @@all
       end
