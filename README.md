@@ -4,7 +4,7 @@ Welcome! This program is designed to help you select a recipe from a list of int
 
 ## Usage
 
-Navigate to the correct root directory for Food finder. Once in the directory, you can run the program by typing bin/run.
+Navigate to the correct root directory for Food Finder. Once in the directory, you can run the program by typing bin/run.
 Once in the program, follow the prompts on the CLI, and pick a meal by name. Each meal will contain a link to a recipe and a link to a youtube video. If either is absent, they will remain blank, but rest assured you will be able to find your recipe by following the other link. 
 
 Happy eating, and don't get your greasy fingers on the keyboard! 
